@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "./App.css";
 //Header Component
 const HeaderComponent = () => {
-  const [searchTxt, setSearchTxt] = useState("");
+  // const [searchTxt, setSearchTxt] = useState("");
 
   const[textChange, setTextChange] = useState("false")
 
