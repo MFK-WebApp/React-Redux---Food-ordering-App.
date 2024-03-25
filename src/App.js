@@ -8,15 +8,19 @@ import { createBrowserRouter, Outlet } from "react-router-dom";
 import Cart from "./Cart";
 import Shimmer from "./Shimmer";
 import RestaurantMenu from "./Restaurantmenu";
+import { Provider } from "react-redux";
+import store from "../src/store";
 
 const Contact = lazy(() => import("./Contact"));
 
 const AppLayout = () => {
   return (
     <div className="restraunt-list">
-      <HeaderComponent />
-      <Outlet />
-      <Footer />
+      <Provider store={store}>
+        <HeaderComponent />
+        <Outlet />
+        <Footer />
+      </Provider>
     </div>
   );
 };
@@ -37,7 +41,7 @@ export const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: (
-          <Suspense fallback={<Shimmer/>}>
+          <Suspense fallback={<Shimmer />}>
             <Contact />
           </Suspense>
         ),

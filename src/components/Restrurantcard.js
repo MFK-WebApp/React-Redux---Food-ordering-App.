@@ -4,7 +4,6 @@ const RestrauntCard = ({
     name,
     cuisines,
     cloudinaryImageId,
-    avgRating,
   }) => {
     return (
       <div className=" bg-pink-50 flex m-4 flex-wrap w-52 border-2 p-2 h-80 overflow-hidden hover:bg-gray-300 ease-in-out duration-200 shadow-2xl rounded-sm">
@@ -15,7 +14,7 @@ const RestrauntCard = ({
       />
       <div className="flex flex-col justify-between w-full">
         <div>
-          <h2 className="text-md font-bold mb-2">{name}</h2>
+          <h2 className="text-md font-bold">{name}</h2>
           <h3 className="text-sm">{cuisines.join(", ")}</h3>
         </div>
         <div className="text-sm">

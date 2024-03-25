@@ -35,17 +35,19 @@ const Body = () => {
     setFilteredRestaurants(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
-    {console.log(json)}
+    {
+      console.log(json);
+    }
   }
 
-  if(!allRestaurants) return null;
+  if (!allRestaurants) return null;
 
   // if(filteredRestaurants?.length == 0) return <center><h1>Oooppsi!! No Restraunt Found🙁</h1></center>
- 
+
   return allRestaurants?.length === 0 ? (
     <Shimmer />
   ) : (
-    <> 
+    <>
       <div className="search-container absolute top-2 left-1/3">
         <input
           type="text"
@@ -72,7 +74,12 @@ const Body = () => {
       <div className="restaurant-list flex flex-wrap mt-2 ml-2">
         {filteredRestaurants.map((restaurant) => {
           return (
-            <Suspense><Link to={"/restaurantmenu/" + restaurant.info.id} key={restaurant.info.id} ><RestrauntCard {...restaurant.info}  /></Link></Suspense>
+            <Link
+              to={"/restaurantmenu/" + restaurant.info.id}
+              key={restaurant.info.id}
+            >
+              <RestrauntCard {...restaurant.info} key={restaurant.info.id} />
+            </Link>
           );
         })}
       </div>
